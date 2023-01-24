@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content%}
+    <div>
+        <h1> Your Encounter score is {{match}}</h1>
+        <h4> The monsters included are:</h4>
+        {% for enc in encounter %}
+        <div>
+            <ul>
+                <li>Monster Name: {{enc.name}}</li>
+                <li> Challenge Rating: {{enc.challenge_rating}}</li>
+            </ul>
+        </div>
+
+    </div>
+    {% endfor %}
+    <h5> Not what you had in mind</h5>
+    <a href="/fight/plans/{{difficulty}}/{{current_user.id}}" class="btn btn-warning mx-auto mb-2" style="width: 15rem;">Try Again</a>
+{% endblock %}

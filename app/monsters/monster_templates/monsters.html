@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for dex in rolodex %}
+<div>
+
+    <ul>
+        <li>Name: {{dex.name}}</li>
+        <li>Challenge Rating: {{dex.challenge_rating}}</li>
+        <li>Hit Points: {{dex.hit_points}}</li>
+        <li>Armor Class: {{dex.armor_class}}</li>
+    </ul>
+
+
+</div>
+{% endfor %}
+<a href="/monster/entry" class="btn btn-warning mx-auto mb-2" style="width: 15rem;">Add Monster</a>
+<a href="#" class="btn btn-warning mx-auto mb-2" style="width: 15rem;">Create Monster</a>
+{% endblock %}

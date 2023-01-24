@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block content %}
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{form.entry(class="form-control", placeholder="Monster Index")}}
+
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        {{form.submit(class="btn btn-primary ", value="Find")}}
+    
+    </div>
+
+
+</form>
+{% endblock %}

@@ -1,0 +1,16 @@
+.main_background{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.ctfassets.net/swt2dsco9mfe/69VVMBBFaqmUfQPJ6GioOP/ff21b7b867eea95661e3f9a5aa8b2e6b/1920x1080-kubrick.jpg") ;
+    background-repeat: repeat, no-repeat;
+    background-position: center;
+    height:  100% ;
+    background-attachment: fixed;
+    
+}
+
+.body{
+    font-family: Aboreto;
+    font-size: large;
+    font-weight: bold;
+    color:rgb(255, 255, 255)
+}
+
