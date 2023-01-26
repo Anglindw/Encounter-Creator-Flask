@@ -6,12 +6,13 @@
   </div>
 
   <div class="row justify-content-center ">
-    <table class="table text-center text-white body">
+    <table class="table text-center text-white body paragraph border border-danger">
       <thead>
         <tr class="fs-3">
           <th scope="col">Name</th>
           <th scope="col">Class</th>
           <th scope="col">Level</th>
+          <th scope="col">Update</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
@@ -22,6 +23,10 @@
           </th>
           <td class="text-capitalize">{{box.tclass}}</td>
           <td>{{box.level}}</td>
+          <td> {% if current_user.id == box.user_id %}
+            <a href="/team/update/{{box.id}}" class="btn btn-outline-primary mx-auto mb-2" >Update</a>
+          </td>
+          {% endif %}
           <td>{% if current_user.id == box.user_id %}  
             <!-- Button trigger modal -->
       <button type="button" class="btn btn-outline-danger btn-block mx-auto body" data-toggle="modal" data-target="#exampleModal">

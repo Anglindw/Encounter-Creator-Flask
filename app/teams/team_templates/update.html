@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container ">
+<div class="col"></div>
+<div class="col align-items-center">
+<form method= "POST", class="p-5 mx-auto align-items-center" >
+
+    {{form.hidden_tag()}}
+    <div class="p-4 ">
+    {{form.name(class=' form-control form-control-lg text-center text-white rounded-pill', style=" background-color: #242f36 ; color: white ; opacity: .6 ;", placeholder='Name', value=team.name)}}
+    </div>
+    <div class="p-4">
+    {{form.tclass(class='form-select form-select-lg text-center rounded-pill', style=" background-color: #242f36 ; color: white ; opacity: .6 ;", placeholder='Class', value=team.tclass)}}
+    </div>
+    <div class="p-4">
+    {{form.level(class='form-control form-control-lg text-center rounded-pill', style=" background-color: #242f36 ; color: white ; opacity: .6 ;", placeholder='Level', value=team.level)}}
+    </div>
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        {{form.submit(class="btn btn-success", value="Update")}}
+    
+    </div>
+
+</form></div>
+<div class="col"></div>
+</div>
+{% endblock %}
