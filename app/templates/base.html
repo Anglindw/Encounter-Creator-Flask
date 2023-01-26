@@ -19,9 +19,10 @@
     <div class="">
     {% block content %}
     
-    {% endblock %}</div>
-    <div class="fixed-bottom d-flex justify-content-evenly">
-            <p>This work is protected by the <a class="text-decoration-none text-warning" href="/ogl">Ogl 1.0a</a></p>
+    {% endblock %}
+</div>
+    <div class="fixed-bottom d-flex justify-content-evenly bg-gradient bg-dark align-items-end" >
+            <a class="btn btn-transparent text-warning" href="/ogl">Protected by OGL 1.0a</a>
             <button class="btn btn-transparent text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Help Center</button>
 
             <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
@@ -29,11 +30,28 @@
                     <h5 class="offcanvas-title" id="offcanvasBottomLabel">Help Center</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                <div class="offcanvas-body small paragraph">
+                <div class="offcanvas-body small paragraph lh-lg">
                     Challenge Score: This Score is given to each character based on their class and level. Each player has a challenge score and each team has challenge score. <br/>
-                    Adding a Player
+                    Adding a Player: Go to the Team Page and click the Add a Player Button. Then Give a Player: Name, Class, and Level. At the moment you must delete and remake players to update<br/>
+                    Difficulty: Each difficulty will make a specific range that it will have in relation to your team challenge score.
+
                 </div>
-</div>
+            </div>
+            <button class="btn btn-transparent text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomx" aria-controls="offcanvasBottom">Credits</button>
+
+            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottomx" aria-labelledby="offcanvasBottomLabel">
+                <div class="offcanvas-header paragraph">
+                    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Credits</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                <div class="offcanvas-body small paragraph lh-lg">
+                    max.icons from flaticon for difficulty icons <br/>
+                    Freepik from flaticon for header icon<br/>
+                    Wizards of the Coast for background
+                    
+
+                </div>
+            </div>
             
             
     </div>

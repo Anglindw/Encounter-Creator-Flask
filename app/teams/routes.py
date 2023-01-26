@@ -15,10 +15,101 @@ def tregister():
             tclass = form.tclass.data
             level = form.level.data
             my_id = current_user.id
+            challenge_score = 0
+            if tclass == 'fighter':
+                if level >= 1 and level <= 5:
+                    challenge_score += (level * 1.6)
+                elif level >= 6 and level <= 10:
+                    challenge_score += (level * 1.7)
+                elif level >= 11 and level <=15:
+                    challenge_score += (level * 1.55)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 1.5)
+            elif tclass == 'barbarian':
+                if level >= 1 and level <= 5:
+                    challenge_score += (level * 1.8)
+                elif level >= 6 and level <= 10:
+                    challenge_score += (level * 1.6)
+                elif level >= 11 and level <=15:
+                    challenge_score += (level * 1.7)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 1.7)
+            elif tclass == 'warlock':
+                if level >= 1 and level <= 5:
+                    challenge_score += (level * 1.5)
+                elif level >= 6 and level <= 10:
+                    challenge_score += (level * 1.6)
+                elif level >= 11 and level <=15:
+                    challenge_score += (level * 1.7)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 1.6)
+            elif tclass == 'ranger':
+                if level >= 1 and level <= 5:
+                    challenge_score = (level * 1.5)
+                elif level >= 6 and level <= 10:
+                    challenge_score = (level * 1.4)
+                elif level >= 11 and level <=15:
+                    challenge_score = (level * 1.5)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 1.45)
+            elif tclass == 'paladin':
+                if level >= 1 and level <= 5:
+                    challenge_score = (level * 1.6)
+                elif level >= 6 and level <= 10:
+                    challenge_score = (level * 1.7)
+                elif level >= 11 and level <=15:
+                    challenge_score = (level * 1.7)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 1.8)
+            elif tclass == 'battle dancer':
+                if level >= 1 and level <= 5:
+                    challenge_score += (level * 1.3)
+                elif level >= 6 and level <= 10:
+                    challenge_score += (level * 1.4)
+                elif level >= 11 and level <=15:
+                    challenge_score += (level * 1.5)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 1.5)
+            elif tclass == 'wizard':
+                if level >= 1 and level <= 5:
+                    challenge_score += (level * 1.3)
+                elif level >= 6 and level <= 10:
+                    challenge_score += (level * 1.7)
+                elif level >= 11 and level <=15:
+                    challenge_score += (level * 1.7)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 2)
+            elif tclass == 'rogue':
+                if level >= 1 and level <= 5:
+                    challenge_score += (level * 1.8)
+                elif level >= 6 and level <= 10:
+                    challenge_score += (level * 1.7)
+                elif level >= 11 and level <=15:
+                    challenge_score += (level * 1.7)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 1.7)
+            elif tclass == 'bard':
+                if level >= 1 and level <= 5:
+                    challenge_score = (level * 1.8)
+                elif level >= 6 and level <= 10:
+                    challenge_score = (level * 1.8)
+                elif level >= 11 and level <=15:
+                    challenge_score = (level * 1.8)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 1.8)
+            elif tclass == 'cleric':
+                if level >= 1 and level <= 5:
+                    challenge_score += (level * 1.8)
+                elif level >= 6 and level <= 10:
+                    challenge_score += (level * 1.8)
+                elif level >= 11 and level <=15:
+                    challenge_score += (level * 1.8)
+                elif level >= 16 and level <= 20:
+                    challenge_score += (level * 1.9)
 
-            print(name, tclass, level)
+            print(name, tclass, level, challenge_score)
 
-            team = Team(name, tclass, level, current_user.id)
+            team = Team(name, tclass, level, challenge_score, current_user.id)
 
             team.save_to_db()
             return redirect(url_for('team.viewteam', my_id = current_user.id))
@@ -32,106 +123,11 @@ def viewteam(my_id):
     print(boxes)
     tchallenge_score = 0
     for box in boxes:
-        if box.tclass == 'fighter':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1) 
-
-        elif box.tclass == 'barbarian':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1)
-
-        elif box.tclass == 'warlock':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1)
-
-        elif box.tclass == 'ranger':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1)
-
-        elif box.tclass == 'paladin':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1)
-
-        elif box.tclass == 'battle dancer':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1)
-
-        elif box.tclass == 'wizard':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1)
-
-        elif box.tclass == 'bard':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1)
-
-        elif box.tclass == 'cleric':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1)
-        
-        elif box.tclass == 'rogue':
-            if box.level >= 1 and box.level <= 5:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 6 and box.level <= 10:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 11 and box.level <=15:
-                tchallenge_score += (box.level * 1)
-            elif box.level >= 16 and box.level <= 20:
-                tchallenge_score += (box.level * 1)
+        tchallenge_score += box.challenge_score
     tchallenge_score = tchallenge_score / 4
+    tchallenge_score = round(tchallenge_score, 2)
+    
+    
 
         
     return render_template('teamview.html', boxes=boxes[::-1], tchallenge_score=tchallenge_score)

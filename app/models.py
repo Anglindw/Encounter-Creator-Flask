@@ -26,15 +26,18 @@ class Team(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False,  )
     tclass = db.Column(db.String(), nullable=False, )
-    level = db.Column(db.Integer, nullable=False)
+    level = db.Column(db.Integer, nullable=False,)
+    challenge_score = db.Column(db.Float(2), nullable=False)
     date_created = db.Column(db.DateTime, nullable = False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    def __init__(self, name, tclass, level, user_id):
+    def __init__(self, name, tclass, level, challenge_score, user_id):
         self.name = name
         self.tclass = tclass
         self.level = level
+        self.challenge_score = challenge_score
         self.user_id = user_id
+
 
     def save_to_db(self):
         db.session.add(self)
@@ -47,7 +50,7 @@ class Team(db.Model):
 class Monsters(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable= False, unique=True)
-    challenge_rating = db.Column(db.Integer, nullable=False)
+    challenge_rating = db.Column(db.Numeric(10,2), nullable=False)
     hit_points = db.Column(db.Integer, nullable=False)
     armor_class = db.Column(db.Integer, nullable = False)
 

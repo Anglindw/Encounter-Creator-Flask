@@ -24,7 +24,7 @@
           <td>{{box.level}}</td>
           <td>{% if current_user.id == box.user_id %}  
             <!-- Button trigger modal -->
-      <button type="button" class="btn btn-danger btn-block mx-auto body" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn btn-outline-danger btn-block mx-auto body" data-toggle="modal" data-target="#exampleModal">
         Delete
       </button>
       
@@ -54,5 +54,5 @@
         {% endfor %}
       </tbody>
     </table>
-    <a href="/teamregistry" class="btn mx-auto mb-2 add-button" style="width: 15rem; background-color:  #9e0b0f;">Add to Team</a>
+    <a href="/teamregistry" class="btn mx-auto btn-outline-warning mb-2 add-button" >Add to Team</a>
 {% endblock %}
