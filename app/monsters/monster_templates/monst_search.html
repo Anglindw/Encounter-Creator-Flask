@@ -1,14 +1,22 @@
 {% extends 'base.html'%}
 {% block content %}
-<form method="POST">
+<div class="container">
+<div class="col">
+
+</div>
+<div class="col justify-content-center py-5">
+<form method="POST" class="align-middle">
     {{ form.hidden_tag() }}
     {{form.entry(class="form-control", placeholder="Monster Index")}}
 
-    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-        {{form.submit(class="btn btn-primary ", value="Find")}}
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 p-3">
+        {{form.submit(class="btn btn-outline-warning btn-lg rounded-pill", value="Find")}}
     
     </div>
 
 
 </form>
+</div>
+<div class="col"></div>
+</div>
 {% endblock %}

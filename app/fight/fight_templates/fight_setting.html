@@ -1,24 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>
- Your Challenge Score is 
- {{tchallenge_score}}
-</h2>
-<p> Before moving on make sure this is the party you wish to continue with.</p>
-{% for box in boxes %}
-<div>
-    
-    <ul>
-        <li>Name: {{box.name}}</li>
-        <li>Class: {{box.tclass}}</li>
-        <li>Level: {{box.level}}</li>
-    </ul>
-    
+<div class="container">
+    <div class="row text-center">
+        <h2 class=" ">
+        Your Challenge Score is 
+            {{tchallenge_score}}
+        </h2>
 </div>
-{% endfor %}
+    <div class="row text-center">
+        <p> What kind of challenge would you like?</p>
+    </div>
+    <div class="row">
+        <a href="/fight/plans/easy/{{current_user.id}}" class="btn ebtn col border-success border-4 p-4 m-4 text-white fs-2">Easy</a>
+        <a href="/fight/plans/normal/{{current_user.id}}" class="nbtn col btn border-warning border-4 p-4 m-4 text-white fs-2">Normal</a>
+        <a href="/fight/plans/hard/{{current_user.id}}" class="hbtn col btn border-danger border-4 p-4 m-4 text-white fs-2">Hard</a>
 
-<a href="/fight/plans/easy/{{current_user.id}}" class="btn btn-success mx-auto mb-2" style="width: 15rem;">Easy</a>
-<a href="/fight/plans/normal/{{current_user.id}}" class="btn btn-warning mx-auto mb-2" style="width: 15rem;">Normal</a>
-<a href="/fight/plans/hard/{{current_user.id}}" class="btn btn-danger mx-auto mb-2" style="width: 15rem;">Hard</a>
+    </div>
+</div>
+
 
 {% endblock %}

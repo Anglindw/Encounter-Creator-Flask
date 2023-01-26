@@ -1,19 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class=" d-flex justify-content-center">
+    <a href="/monster/entry" class="btn btn-transparent border border-warning text-center text-white mx-auto mt-2 " style="width: 15rem; height: 2rem;">Add Monster</a>
+    <a href="/monster/view" class="btn btn-transparent border border-warning text-white mx-auto mt-2 " style="width: 15rem; height: 2rem;">Order By Name</a>
+    <a href="/monster/view/cr" class="btn btn-transparent border border-warning text-white mx-auto mt-2" style="width: 15rem; height: 2rem;">Challenge Rating</a>
+    <a href="/monster/view/hp" class="btn btn-transparent border border-warning text-white mx-auto mt-2 " style="width: 15rem; height: 2rem;">Hit Points</a>
+    <a href="/monster/view/ac" class="btn btn-transparent border border-warning text-white mx-auto mt-2" style="width: 15rem; height: 2rem;">Armor Class</a>
+    </div>
+<div class="container">
 
-{% for dex in rolodex %}
-<div>
+    <div class="row p-4">
+        <table class="table table-bordered border-danger text-center text-white tbg body">
+            <thead>
+                <tr class="fs-3">
+                    <th scope="col">Monster</th>
+                    <th scope="col">Challenge Rating</th>
+                    <th scope="col">Hit Points</th>
+                    <th scope="col">Armor Class</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dex in rolodex %}
+                <tr class="fs-5">
+                    <th scope="row">{{dex.name}}</th>
+                    <th>{{dex.challenge_rating}}</th>
+                    <th>{{dex.hit_points}}</th>
+                    <th>{{dex.armor_class}}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <ul>
-        <li>Name: {{dex.name}}</li>
-        <li>Challenge Rating: {{dex.challenge_rating}}</li>
-        <li>Hit Points: {{dex.hit_points}}</li>
-        <li>Armor Class: {{dex.armor_class}}</li>
-    </ul>
-
+    </div>
 
 </div>
-{% endfor %}
-<a href="/monster/entry" class="btn btn-warning mx-auto mb-2" style="width: 15rem;">Add Monster</a>
-<a href="#" class="btn btn-warning mx-auto mb-2" style="width: 15rem;">Create Monster</a>
+
+
 {% endblock %}

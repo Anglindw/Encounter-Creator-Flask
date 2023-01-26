@@ -40,3 +40,20 @@ def monview():
     rolodex = Monsters.query.order_by(Monsters.name).all()
     print(rolodex)
     return render_template('monsters.html', rolodex=rolodex)
+
+@monster.route('/monster/view/cr')
+def monviewcr():
+    rolodex = Monsters.query.order_by(Monsters.challenge_rating).all()
+    print(rolodex)
+    return render_template('monsters.html', rolodex=rolodex)
+
+@monster.route('/monster/view/hp')
+def monviewhp():
+    rolodex = Monsters.query.order_by(Monsters.hit_points).all()
+    print(rolodex)
+    return render_template('monsters.html', rolodex=rolodex)
+@monster.route('/monster/view/ac')
+def monviewac():
+    rolodex = Monsters.query.order_by(Monsters.armor_class).all()
+    print(rolodex)
+    return render_template('monsters.html', rolodex=rolodex)

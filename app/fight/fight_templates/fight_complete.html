@@ -1,18 +1,36 @@
 {% extends 'base.html' %}
 {% block content%}
-    <div>
-        <h1> Your Encounter score is {{match}}</h1>
-        <h4> The monsters included are:</h4>
-        {% for enc in encounter %}
-        <div>
-            <ul>
-                <li>Monster Name: {{enc.name}}</li>
-                <li> Challenge Rating: {{enc.challenge_rating}}</li>
-            </ul>
+<div class="container">
+    <div class="col">
+        <div class="row text-center">
+            <h1>Encounter Score</h1>
         </div>
-
+        <div class="row text-center text-bold p-2">
+            <h2>{{match}}</h2>
+        </div>
     </div>
-    {% endfor %}
-    <h5> Not what you had in mind</h5>
-    <a href="/fight/plans/{{difficulty}}/{{current_user.id}}" class="btn btn-warning mx-auto mb-2" style="width: 15rem;">Try Again</a>
+    <div class="col">
+        <div class="row">
+            <table class="table table-bordered border-danger text-center text-white tbg body">
+                <thead>
+                    <tr class="fs-3">
+                        <th scope="col">Monster</th>
+                        <th scope="col">Challenge Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dex in encounter %}
+                    <tr class="fs-5">
+                        <th scope="row">{{dex.name}}</th>
+                        <th>{{dex.challenge_rating}}</th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center">    
+    <a href="/fight/plans/{{difficulty}}/{{current_user.id}}" class="btn btn-transparent border-warning rounded-pill mx-auto mb-2 text-white" style="width: 15rem;">Try Again</a>
+</div>    
 {% endblock %}
